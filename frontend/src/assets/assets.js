@@ -122,7 +122,7 @@ export const products = [
     },
     {
         _id: "aaaac",
-        name: "Girls Round Neck Cotton Top",
+        name: "Girls round neck band",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
         image: [p_img3],
@@ -360,6 +360,7 @@ export const products = [
         date: 1716635445448,
         bestseller: false
     },
+    {/*add frpm here */},
     {
         _id: "aaaaw",
         name: "Boy Round Neck Pure Cotton T-shirt",
