@@ -17,6 +17,7 @@ const Order = () => {
         }
 
         const response = await axios.post(backendUrl + '/api/order/userorders',{},{headers:{token}})
+        console.log(response.data);
         
         
         if (response.data.success) {
@@ -40,6 +41,8 @@ const Order = () => {
       }
   }
 
+  
+
   useEffect(()=>{
     loadOrderData()
   },[token])
@@ -61,18 +64,19 @@ const Order = () => {
                       <p className='sm:text-base font-medium '>{item.name}</p>
                       <div className='flex items-center gap-3 mt-2 text-base text-gray-700'>
                           <p className='text-lg'>{currency}{item.price}</p>
-                          <p>Quantity:1</p>
-                          <p>Size:M</p>
+                          <p>Quantity:{item.quantity}</p>
+                          <p>Size:{item.size}</p>
                       </div>
-                      <p>Date: <span className='text-gray-400'>25,july 2024</span></p>
+                      <p>Date: <span className='text-gray-400'>{new Date(item.date).toDateString()}</span></p>
+                      <p>Payment: <span className='text-gray-400'>{item.paymentMethod}</span></p>
                     </div>
                 </div>
                 <div className='md:w-1/2 flex justify-between'>
                     <div className='flex items-center gap-2'>
                         <p className='min-w-2 h-2 rounded-full bg-green-500'></p>
-                        <p className='text-sm md:text-base'> Ready to Ship</p>
+                        <p className='text-sm md:text-base'> {item.status}</p>
                     </div>
-                    <button className='border px-4 py-2 text-sm font-medium rounded-sm'>Track Order</button>
+                    <button onClick={loadOrderData} className='border px-4 py-2 text-sm font-medium rounded-sm'>Track Order</button>
 
                 </div>
             </div>
